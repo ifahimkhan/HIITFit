@@ -5,7 +5,7 @@ struct ContentView: View {
     var body: some View {
         TabView{
             WelcomeView()
-            ForEach(0..<4){
+            ForEach(Exercise.exercises.indices,id: \.self){
                 index in
                 ExerciseView(index: index)
             }
