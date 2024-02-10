@@ -2,37 +2,26 @@
 import SwiftUI
 
 struct HIstoryView: View {
-    let today = Date()
-    let yesterday = Date().addingTimeInterval(-86400)
-    let exerciese1 = ["Squat","Step Up","Burpee","Sun Salute"]
-    let exerciese2 = ["Squat","Step Up","Burpee"]
+    let history = HistoryStore()
 
     var body: some View {
-        VStack{
-            Text("History")
-                .font(.title)
-                .padding()
-            Form{
-                Section(
-                    header:Text(today.formatted(as: "MMM d"))
-                        .font(.headline)
-                ){
-                    ForEach(exerciese1,id:\.self){
-                        exercise in
-                        Text(exercise)
+        ZStack (alignment: .topTrailing){
+            Button(action:{}){
+                Image(systemName: "xmark.circle")
+            }.font(.title)
+                .padding(.trailing)
+            VStack{
+                Text("History")
+                    .font(.title)
+                    .padding()
+                Form{
+                    ForEach(history.exerciseDays){  day in
+                        Section(header: Text(day.date.formatted(as: "MMM d")).font(.headline)){
+                            ForEach(day.exercise,id:\.self){    exercise in
+                                Text(exercise)
+                            }
+                        }
                     }
-
-                }
-
-                Section(
-                    header:Text(yesterday.formatted(as: "MMM d"))
-                        .font(.headline)
-                ){
-                    ForEach(exerciese2, id: \.self){
-                        exercise in
-                        Text(exercise)
-                    }
-
                 }
             }
         }
