@@ -2,10 +2,11 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @Binding var selectionTab: Int
     var body: some View {
         ZStack {
             VStack {
-                HeaderView(titleText: "Welcome")
+                HeaderView(selectedTab: $selectionTab,titleText: "Welcome")
                 Spacer()
                 Button("History"){}
                     .padding(.bottom)
@@ -22,7 +23,9 @@ struct WelcomeView: View {
                         .resizedToFill(width: 200, height: 200)
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
-                Button(action:{}){
+                Button(action:{
+                    selectionTab = 0
+                }){
                     Text("Get Started")
                     Image(systemName: "arrow.right.circle")
                 }
@@ -40,6 +43,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(selectionTab: .constant(9))
     }
 }
