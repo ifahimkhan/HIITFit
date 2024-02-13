@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SuccessView: View {
     @Binding var selectedTab: Int
+    @Environment(\.dismiss) var dismiss
     let multiline = """
                 Good job completing all four exercises!
                 Remember tomorrow's another day.
@@ -14,6 +15,7 @@ struct SuccessView: View {
             VStack{
                 Spacer()
                 Button("continue"){
+                    dismiss()
                     selectedTab = 9
                 }.padding(.bottom)
             }

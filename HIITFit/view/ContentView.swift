@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 9
+    @State private var showHistory = false
     
     var body: some View {
         TabView(selection:$selectedTab){

@@ -9,15 +9,29 @@ struct ExerciseView: View {
     }
     let interval: TimeInterval = 30
     @Binding var selectedTab: Int
+
     @State private var rating = 0
+
+    @State private var showHistory = false
+
+    @State private var showSuccess = false
+
+
     var lastExercise: Bool{
         index + 1 == Exercise.exercises.count
     }
 
     var doneButton: some View{
         Button("Done"){
-            selectedTab = lastExercise ? 9 : selectedTab + 1
-
+            if(lastExercise){
+                showSuccess.toggle()
+            }else{
+                selectedTab = lastExercise ? 9 : selectedTab + 1
+            }
+        }
+        .sheet(isPresented:$showSuccess){
+            SuccessView(selectedTab: $selectedTab)
+                .presentationDetents([.medium,.large])
         }
     }
     var startButton: some View{
@@ -47,7 +61,9 @@ struct ExerciseView: View {
                 RatingView(rating: .constant(3)).padding()
                 Spacer()
                 Button("History"){
-
+                    showHistory.toggle()
+                }.sheet(isPresented: $showHistory){
+                    HistoryView(showHistory: $showHistory)
                 }
                 .padding(.bottom)
 
@@ -58,7 +74,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(index: 1, selectedTab: .constant(1))
+        ExerciseView(index: 3, selectedTab: .constant(1))
     }
 }
 
