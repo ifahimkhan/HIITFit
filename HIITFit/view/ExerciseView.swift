@@ -48,7 +48,8 @@ struct ExerciseView: View {
                 Spacer()
                 Button("History"){
 
-                }.padding(.bottom)
+                }
+                .padding(.bottom)
 
             }
         }

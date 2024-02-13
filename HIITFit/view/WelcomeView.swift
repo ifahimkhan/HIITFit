@@ -3,12 +3,19 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var selectionTab: Int
+    @State private var showHistory = false
     var body: some View {
         ZStack {
             VStack {
-                HeaderView(selectedTab: $selectionTab,titleText: "Welcome")
+                HeaderView(selectedTab: $selectionTab,
+                           titleText: "Welcome")
                 Spacer()
-                Button("History"){}
+                Button("History"){
+                    showHistory.toggle()
+                }
+                .sheet(isPresented: $showHistory){
+                    HIstoryView(showHistory: $showHistory)
+                }
                     .padding(.bottom)
             }
             VStack{

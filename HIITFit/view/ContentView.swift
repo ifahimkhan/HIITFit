@@ -12,8 +12,7 @@ struct ContentView: View {
                 index in
                 ExerciseView(index: index, selectedTab: $selectedTab)
             }
-        }.tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 

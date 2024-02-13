@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @Binding var selectedTab: Int
     let multiline = """
                 Good job completing all four exercises!
                 Remember tomorrow's another day.
@@ -12,7 +13,9 @@ struct SuccessView: View {
 
             VStack{
                 Spacer()
-                Button("continue"){}.padding(.bottom)
+                Button("continue"){
+                    selectedTab = 9
+                }.padding(.bottom)
             }
 
             VStack{
@@ -41,6 +44,6 @@ struct SuccessView: View {
 
 struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView()
+        SuccessView(selectedTab: .constant(3))
     }
 }
