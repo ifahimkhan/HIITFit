@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct HistoryView: View {
+
     @Binding var showHistory: Bool
 
     let history = HistoryStore()
