@@ -14,6 +14,7 @@ struct ContentView: View {
                 ExerciseView(index: index, selectedTab: $selectedTab)
             }
         }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .environmentObject(HistoryStore())
     }
 }
 
