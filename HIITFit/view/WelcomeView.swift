@@ -52,5 +52,6 @@ struct WelcomeView: View {
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         WelcomeView(selectionTab: .constant(9))
+            .environmentObject(HistoryStore())
     }
 }

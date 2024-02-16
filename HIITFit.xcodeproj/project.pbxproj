@@ -83,6 +83,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		24E3F8152B7F2D7F000ED535 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				24DB2F312B6752CA00D6506C /* Exercise.swift */,
+				24E3F80B2B754DF8000ED535 /* HistoryStore.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		CD30C917251474DC0049DB93 = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +119,7 @@
 				CD30C94D25147B420049DB93 /* Videos */,
 				CD30C92C251474DD0049DB93 /* Info.plist */,
 				CD30C929251474DD0049DB93 /* Preview Content */,
-				24DB2F312B6752CA00D6506C /* Exercise.swift */,
-				24E3F80B2B754DF8000ED535 /* HistoryStore.swift */,
+				24E3F8152B7F2D7F000ED535 /* model */,
 			);
 			path = HIITFit;
 			sourceTree = "<group>";

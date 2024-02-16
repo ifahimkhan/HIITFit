@@ -1,7 +1,7 @@
 import Foundation
 
 extension HistoryStore{
-     func createDevData(){
+    func createDevData(){
         exerciseDays = [
             ExerciseDay(
                 date: Date().addingTimeInterval(-86400),
@@ -16,8 +16,8 @@ extension HistoryStore{
                     Exercise.exercises[0].exerciseName,
                     Exercise.exercises[1].exerciseName
                 ])
-
-
+            
+            
         ]
     }
 }
