@@ -16,7 +16,6 @@ struct ContentView: View {
             print(URL.documentsDirectory)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .environmentObject(HistoryStore())
     }
 }
 
