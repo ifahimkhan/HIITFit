@@ -11,7 +11,7 @@ struct ExerciseView: View {
     let interval: TimeInterval = 30
     @Binding var selectedTab: Int
     
-    @State private var rating = 0
+//    @AppStorage("rating") private var rating = 0
     @State private var showHistory = false
     @State private var showSuccess = false
     @State private var timerDone = false
@@ -71,7 +71,7 @@ struct ExerciseView: View {
                     TimerView(timerDone: $timerDone, size: geometry.size.height * 0.07)
                 }
                 Spacer()
-                RatingView(rating: $rating).padding()
+                RatingView(exerciseIndex: index).padding()
                 Button("History"){
                     showHistory.toggle()
                 }.sheet(isPresented: $showHistory){

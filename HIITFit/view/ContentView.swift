@@ -2,9 +2,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = 9
+    @SceneStorage("selectedTab") private var selectedTab = 9
     @State private var showHistory = false
-
     var body: some View {
         TabView(selection:$selectedTab){
             WelcomeView(selectionTab: $selectedTab)
@@ -13,8 +12,11 @@ struct ContentView: View {
                 index in
                 ExerciseView(index: index, selectedTab: $selectedTab)
             }
-        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .environmentObject(HistoryStore())
+        }.onAppear{
+            print(URL.documentsDirectory)
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .environmentObject(HistoryStore())
     }
 }
 
