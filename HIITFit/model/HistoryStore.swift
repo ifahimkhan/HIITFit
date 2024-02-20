@@ -40,9 +40,29 @@ class HistoryStore: ObservableObject{
             exerciseDays.insert(ExerciseDay(date: today,exercise: [exerciseName]), at: 0)
         }
         print("Histroy",exerciseDays)
+        do{
+            try save()
+        }catch{
+            fatalError(error.localizedDescription)
+        }
     }
     func load() throws{
-//        throw FileError.loadFailure
+        do{
+            guard let data  = try? Data(contentsOf: dataUrl)else{
+                return
+            }
+            let plistData =  try PropertyListSerialization.propertyList(from: data, options: [],format: nil)
+            let convertedPlistData = plistData as? [[Any]] ?? []
+
+            exerciseDays = convertedPlistData.map{
+                ExerciseDay(date: $0[1] as? Date ?? Date(),
+                exercise: $0[2] as? [String] ?? [])
+            }
+
+        }catch{
+            throw FileError.loadFailure
+        }
+
     }
 
     func save() throws{
