@@ -18,4 +18,10 @@ extension Exercise {
         Exercise(exerciseName: ExerciseEnum.burpee.rawValue, videoName: "burpee"),
         Exercise(exerciseName: ExerciseEnum.sunSalute.rawValue, videoName: "sun-salute")
     ]
+    static let names: [String] = [
+        ExerciseEnum.squat.rawValue,
+        ExerciseEnum.stepUp.rawValue,
+        ExerciseEnum.burpee.rawValue,
+        ExerciseEnum.sunSalute.rawValue
+      ]
 }

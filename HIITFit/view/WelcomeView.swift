@@ -1,57 +1,65 @@
-
 import SwiftUI
 
 struct WelcomeView: View {
-    @Binding var selectionTab: Int
     @State private var showHistory = false
-
+    @Binding var selectedTab: Int
+    
     var body: some View {
-        ZStack {
+        GeometryReader { geometry in
             VStack {
-                HeaderView(selectedTab: $selectionTab,
-                           titleText: "Welcome")
+                HeaderView(
+                    selectedTab: $selectedTab,
+                    titleText: "Welcome")
                 Spacer()
-                Button("History"){
-                    showHistory.toggle()
-                }
-                .sheet(isPresented: $showHistory){
-                    HistoryView(showHistory: $showHistory)
-                }
-                    .padding(.bottom)
-            }
-            VStack{
-                HStack(alignment:.bottom){
-                    VStack(alignment:.leading){
-                        Text("Get Fit")
-                            .font(.largeTitle)
-                        Text("with high intensity interval training")
-                            .font(.headline)
+                // container view
+                ContainerView {
+                    ViewThatFits {
+                        VStack {
+                            WelcomeView.images
+                            WelcomeView.welcomeText
+                            getStartedButton
+                            Spacer()
+                            historyButton
+                        }
+                        VStack {
+                            WelcomeView.welcomeText
+                            getStartedButton
+                            Spacer()
+                            historyButton
+                        }
                     }
-                    Image("step-up")
-                        .resizedToFill(width: 200, height: 200)
-                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
-                Button(action:{
-                    selectionTab = 0
-                }){
-                    Text("Get Started")
-                    Image(systemName: "arrow.right.circle")
-                }
-                .padding()
-                .font(.title2)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray,lineWidth: 2))
-
-
+                .frame(height: geometry.size.height * 0.8)
+            }
+            .sheet(isPresented: $showHistory) {
+                HistoryView(showHistory: $showHistory)
             }
         }
+    }
+    
+    var getStartedButton: some View {
+        RaisedButton(buttonText: "Get Started") {
+            selectedTab = 0
+        }
+        .padding()
+    }
+    
+    var historyButton: some View {
+        Button(
+            action: {
+                showHistory = true
+            }, label: {
+                Text("History")
+                    .fontWeight(.bold)
+                    .padding([.leading, .trailing], 5)
+            })
+        .padding(.bottom, 10)
+        .buttonStyle(EmbossedButtonStyle())
     }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(selectionTab: .constant(9))
-            .environmentObject(HistoryStore())
+        WelcomeView(selectedTab: .constant(9))
     }
 }

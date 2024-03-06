@@ -4,6 +4,11 @@ struct ExerciseDay: Identifiable{
     let id = UUID()
     let date: Date
     var exercise: [String] = []
+    //dataset
+    var uniqueExercises: [String] {
+     Array(Set(exercise)).sorted(by: <)
+   }
+
 
 }
 enum FileError: Error{
@@ -19,16 +24,25 @@ class HistoryStore: ObservableObject{
     }
 
 
-    init(){
-#if DEBUG
-        createDevData()
-#endif
+    init(preview: Bool = false){
         do{
             try  load()
         }catch{
             print("Error: ",error)
             loadingError = true
         }
+
+        #if DEBUG
+        if preview{
+            createDevData()
+        }else{
+            if exerciseDays.isEmpty{
+                copyHistoryTestData()
+                try? load()
+            }
+        }
+            #endif
+
     }
     func addDoneExercise(_ exerciseName:String)    {
         let today = Date()
@@ -56,7 +70,7 @@ class HistoryStore: ObservableObject{
 
             exerciseDays = convertedPlistData.map{
                 ExerciseDay(date: $0[1] as? Date ?? Date(),
-                exercise: $0[2] as? [String] ?? [])
+                            exercise: $0[2] as? [String] ?? [])
             }
 
         }catch{
@@ -78,4 +92,9 @@ class HistoryStore: ObservableObject{
         }
 
     }
+
+
+    func countExercise(exercise: String) -> Int {
+     exercises.filter { $0 == exercise }.count
+   }
 }
