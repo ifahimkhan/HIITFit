@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct HIITFitApp: App {
-    @StateObject var historyStore = HistoryStore()
+    @StateObject var historyStore = HistoryStore(preview: true)
     var body: some Scene {
         WindowGroup {
             ContentView()
