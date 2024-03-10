@@ -5,17 +5,20 @@ struct ContentView: View {
     @SceneStorage("selectedTab") private var selectedTab = 9
     @State private var showHistory = false
     var body: some View {
-        TabView(selection:$selectedTab){
-            WelcomeView(selectionTab: $selectedTab)
-                .tag(9)
-            ForEach(Exercise.exercises.indices,id: \.self){
-                index in
-                ExerciseView(index: index, selectedTab: $selectedTab)
+        ZStack {
+            GradientBackground()
+            TabView(selection:$selectedTab){
+                WelcomeView(selectedTab: $selectedTab)
+                    .tag(9)
+                ForEach(Exercise.exercises.indices,id: \.self){
+                    index in
+                    ExerciseView(index: index, selectedTab: $selectedTab)
+                }
+            }.onAppear{
+                print(URL.documentsDirectory)
             }
-        }.onAppear{
-            print(URL.documentsDirectory)
-        }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }
     }
 }
 
