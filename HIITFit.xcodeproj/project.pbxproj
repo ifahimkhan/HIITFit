@@ -16,6 +16,9 @@
 		24CCD5ED2B93A742009B5CB5 /* WelcomeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5EC2B93A742009B5CB5 /* WelcomeImages.swift */; };
 		24CCD5EF2B945713009B5CB5 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5EE2B945713009B5CB5 /* GradientBackground.swift */; };
 		24CCD5F32B94D721009B5CB5 /* history.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24CCD5F22B94D721009B5CB5 /* history.plist */; };
+		24CCD5F72B9CADE7009B5CB5 /* AddHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5F62B9CADE7009B5CB5 /* AddHistoryView.swift */; };
+		24CCD5F92B9D8F93009B5CB5 /* BarChartsDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5F82B9D8F93009B5CB5 /* BarChartsDayView.swift */; };
+		24CCD5FB2B9E3954009B5CB5 /* BarChartWeelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5FA2B9E3954009B5CB5 /* BarChartWeelView.swift */; };
 		24DB2F322B6752CA00D6506C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB2F312B6752CA00D6506C /* Exercise.swift */; };
 		24DB2F342B7006E400D6506C /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB2F332B7006E400D6506C /* RatingView.swift */; };
 		24DB2F362B70732200D6506C /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB2F352B70732200D6506C /* VideoPlayerView.swift */; };
@@ -46,6 +49,9 @@
 		24CCD5EC2B93A742009B5CB5 /* WelcomeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeImages.swift; sourceTree = "<group>"; };
 		24CCD5EE2B945713009B5CB5 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		24CCD5F22B94D721009B5CB5 /* history.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = history.plist; sourceTree = "<group>"; };
+		24CCD5F62B9CADE7009B5CB5 /* AddHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHistoryView.swift; sourceTree = "<group>"; };
+		24CCD5F82B9D8F93009B5CB5 /* BarChartsDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartsDayView.swift; sourceTree = "<group>"; };
+		24CCD5FA2B9E3954009B5CB5 /* BarChartWeelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartWeelView.swift; sourceTree = "<group>"; };
 		24DB2F312B6752CA00D6506C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		24DB2F332B7006E400D6506C /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		24DB2F352B70732200D6506C /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
@@ -88,7 +94,7 @@
 				24DB2F352B70732200D6506C /* VideoPlayerView.swift */,
 				247DEAD32B66074800D04AD8 /* WelcomeView.swift */,
 				24DB2F332B7006E400D6506C /* RatingView.swift */,
-				24DB2F372B70A04E00D6506C /* HistoryView.swift */,
+				24CCD5F52B9C7EDD009B5CB5 /* History Views */,
 				24E3F80F2B77201A000ED535 /* SuccessView.swift */,
 				24E3F8122B7BFF1D000ED535 /* TimerView.swift */,
 				24CCD5E62B901CFE009B5CB5 /* RaisedButton.swift */,
@@ -98,6 +104,17 @@
 				24CCD5EE2B945713009B5CB5 /* GradientBackground.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		24CCD5F52B9C7EDD009B5CB5 /* History Views */ = {
+			isa = PBXGroup;
+			children = (
+				24DB2F372B70A04E00D6506C /* HistoryView.swift */,
+				24CCD5F62B9CADE7009B5CB5 /* AddHistoryView.swift */,
+				24CCD5F82B9D8F93009B5CB5 /* BarChartsDayView.swift */,
+				24CCD5FA2B9E3954009B5CB5 /* BarChartWeelView.swift */,
+			);
+			path = "History Views";
 			sourceTree = "<group>";
 		};
 		24E3F8152B7F2D7F000ED535 /* model */ = {
@@ -260,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24CCD5F72B9CADE7009B5CB5 /* AddHistoryView.swift in Sources */,
 				24E3F8132B7BFF1D000ED535 /* TimerView.swift in Sources */,
 				24CCD5E72B901CFE009B5CB5 /* RaisedButton.swift in Sources */,
 				24CCD5EB2B931654009B5CB5 /* ContainerView.swift in Sources */,
@@ -268,11 +286,13 @@
 				24CCD5EF2B945713009B5CB5 /* GradientBackground.swift in Sources */,
 				247DEAD42B66074800D04AD8 /* WelcomeView.swift in Sources */,
 				24DB2F342B7006E400D6506C /* RatingView.swift in Sources */,
+				24CCD5FB2B9E3954009B5CB5 /* BarChartWeelView.swift in Sources */,
 				24E3F80C2B754DF8000ED535 /* HistoryStore.swift in Sources */,
 				24CCD5ED2B93A742009B5CB5 /* WelcomeImages.swift in Sources */,
 				24E3F80E2B75C4DB000ED535 /* HistoryStoreDevData.swift in Sources */,
 				24E3F8102B77201A000ED535 /* SuccessView.swift in Sources */,
 				CD30C926251474DC0049DB93 /* ContentView.swift in Sources */,
+				24CCD5F92B9D8F93009B5CB5 /* BarChartsDayView.swift in Sources */,
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,

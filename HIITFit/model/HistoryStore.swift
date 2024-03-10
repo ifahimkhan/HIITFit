@@ -6,9 +6,12 @@ struct ExerciseDay: Identifiable{
     var exercise: [String] = []
     //dataset
     var uniqueExercises: [String] {
-     Array(Set(exercise)).sorted(by: <)
-   }
+        Array(Set(exercise)).sorted(by: <)
+    }
 
+    func countExercise(exe: String) -> Int {
+        exercise.filter { $0 == exe }.count
+    }
 
 }
 enum FileError: Error{
@@ -32,7 +35,7 @@ class HistoryStore: ObservableObject{
             loadingError = true
         }
 
-        #if DEBUG
+#if DEBUG
         if preview{
             createDevData()
         }else{
@@ -41,7 +44,7 @@ class HistoryStore: ObservableObject{
                 try? load()
             }
         }
-            #endif
+#endif
 
     }
     func addDoneExercise(_ exerciseName:String)    {
@@ -93,8 +96,19 @@ class HistoryStore: ObservableObject{
 
     }
 
+    func addExercise(date:Date, exerciseName:String){
+        let exerciseDay = ExerciseDay(date: date,exercise: [exerciseName])
+        if let index = exerciseDays.firstIndex(where:
+                                                {$0.date.yearMonthDay <= date.yearMonthDay}){
+            if date.isSameDay(as: exerciseDays[index].date){
+                exerciseDays[index].exercise.append(exerciseName)
+            }else{
+                exerciseDays.insert(exerciseDay, at: index)
+            }
+        }else{
+            exerciseDays.append(exerciseDay)
+        }
+        try? save()
 
-    func countExercise(exercise: String) -> Int {
-     exercises.filter { $0 == exercise }.count
-   }
+    }
 }
