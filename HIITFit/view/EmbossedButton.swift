@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct EmbossedButtonStyle: ButtonStyle {
+    var buttonScale = 1.0
     var buttonShape = EmbossedButtonShape.capsule
     func makeBody(configuration: Configuration) -> some View {
         let shadow = Color("drop-shadow")
@@ -16,6 +17,7 @@ struct EmbossedButtonStyle: ButtonStyle {
                         .shadow(color: highlight, radius: 1, x: -2, y: -2)
                     .offset(x: -1, y: -1)
                 })
+            .scaleEffect(configuration.isPressed ? buttonScale : 1.0)
     }
     @ViewBuilder
     func shape(size: CGSize) -> some View{
@@ -42,7 +44,7 @@ struct EmbossedButton_Previews: PreviewProvider {
     static var previews: some View {
         Button("History") {}
             .fontWeight(.bold)
-            .buttonStyle(EmbossedButtonStyle())
+            .buttonStyle(EmbossedButtonStyle(buttonScale: 1.5,buttonShape: .capsule))
             .padding(40)
             .previewLayout(.sizeThatFits)
     }}
