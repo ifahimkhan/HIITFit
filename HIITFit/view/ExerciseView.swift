@@ -54,6 +54,7 @@ struct ExerciseView: View {
         .buttonStyle(EmbossedButtonStyle())
     }
     var body: some View {
+        let exerciseName = Exercise.exercises[index].exerciseName
         
         GeometryReader { geometry in
             VStack{
@@ -62,50 +63,61 @@ struct ExerciseView: View {
                 Spacer()
                 ContainerView{
                     VStack{
-
-
                         VideoPlayerView(videoName:exercise.videoName).frame(height: geometry.size.height * 0.45)
-
-
-
-                        //                Text(Date().addingTimeInterval(interval),style: .timer)
-                        //                    .font(.system(size: geometry.size.height * 0.07))
+                            .padding(20)
                         HStack (spacing:150){
                             startButton
-                            doneButton
-                                .disabled(!timerDone)
-                                .sheet(isPresented:$showSuccess){
-                                    SuccessView(selectedTab: $selectedTab)
-                                        .presentationDetents([.medium,.large])
+                                .padding([.leading, .trailing], geometry.size.width * 0.1)
+                                .sheet(isPresented: $showTimer) {
+                                    TimerView(
+                                        timerDone: $timerDone,
+                                        exerciseName: exerciseName)
+                                    .onDisappear {
+                                        if timerDone {
+                                            history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                                            timerDone = false
+                                            if lastExercise {
+                                                showSuccess.toggle()
+                                            } else {
+                                                withAnimation {
+                                                    selectedTab += 1
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
-
+                                .sheet(isPresented: $showSuccess) {
+                                    SuccessView(selectedTab: $selectedTab)
+                                        .presentationDetents([.medium, .large])
+                                }
                         }
                         .font(.title3)
                         .padding()
-                        if showTimer{
-                            TimerView(timerDone: $timerDone, size: geometry.size.height * 0.07)
-                        }
                         Spacer()
-                        RatingView(exerciseIndex: index).padding()
-                        historyButton.sheet(isPresented: $showHistory){
-                            HistoryView(showHistory: $showHistory)
-                        }
-                        .padding(.bottom)
+                        RatingView(exerciseIndex: index)
+                            .padding()
+                        historyButton
+                            .sheet(isPresented: $showHistory) {
+                                HistoryView(showHistory: $showHistory)
+                            }
+                            .padding(.bottom)
+
                     }
 
                 }.frame(height:geometry.size.height*0.8)
             }
+
         }
 
     }
 
 }
-
-
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseView(index: 3, selectedTab: .constant(1))
             .environmentObject(HistoryStore(preview: true))
     }
 }
+
+
 
