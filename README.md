@@ -28,14 +28,14 @@
 
   <h2>Screenshots</h2>
 <div style="display: flex; flex-wrap: wrap;">
-  <img src="/screenshots/welcome.png" alt="Screenshot 1" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/exercise.png" alt="Screenshot 2" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/timer.png" alt="Screenshot 3" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/success.png" alt="Screenshot 4" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/history.png" alt="Screenshot 5" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/edithistory.png" alt="Screenshot 6" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/reports.png" alt="Screenshot 7" width="150" height="300" style="margin-right: 10px;">
-  <img src="/screenshots/linechart.png" alt="Screenshot 7" width="150" height="300" style="margin-right: 10px;">
+  <img src="/screenshots/welcome.png" alt="Screenshot 1" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/exercise.png" alt="Screenshot 2" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/timer.png" alt="Screenshot 3" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/success.png" alt="Screenshot 4" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/history.png" alt="Screenshot 5" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/edithistory.png" alt="Screenshot 6" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/reports.png" alt="Screenshot 7" width="200" height="400" style="margin-right: 10px;">
+  <img src="/screenshots/linechart.png" alt="Screenshot 7" width="200" height="400" style="margin-right: 10px;">
 </div>
 
 
