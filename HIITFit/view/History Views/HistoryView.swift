@@ -3,7 +3,6 @@ import SwiftUI
 struct HistoryView: View {
     @EnvironmentObject var history: HistoryStore
     @Binding var showHistory: Bool
-
     @State private var addMode = false
     
 
@@ -39,9 +38,10 @@ struct HistoryView: View {
     }
 
     func exerciseView(day: ExerciseDay) -> some View {
-        ForEach(day.exercise, id: \.self) { exercise in
+        ForEach(Array(Set(day.exercise)), id: \.self) { exercise in
             Text(exercise).badge(day.countExercise(exe: exercise))
         }
+
     }
 
     var body: some View {

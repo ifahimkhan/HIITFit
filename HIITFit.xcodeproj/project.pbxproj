@@ -11,6 +11,7 @@
 		247DEAD42B66074800D04AD8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247DEAD32B66074800D04AD8 /* WelcomeView.swift */; };
 		247DEAD62B66347100D04AD8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247DEAD52B66347100D04AD8 /* HeaderView.swift */; };
 		24A1E33F2BA2FCA40019BC7C /* BarChatWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A1E33E2BA2FCA40019BC7C /* BarChatWeekView.swift */; };
+		24A1E3432BA39EF40019BC7C /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A1E3422BA39EF40019BC7C /* IndentView.swift */; };
 		24CCD5E72B901CFE009B5CB5 /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5E62B901CFE009B5CB5 /* RaisedButton.swift */; };
 		24CCD5E92B919F63009B5CB5 /* EmbossedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5E82B919F63009B5CB5 /* EmbossedButton.swift */; };
 		24CCD5EB2B931654009B5CB5 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCD5EA2B931654009B5CB5 /* ContainerView.swift */; };
@@ -44,6 +45,7 @@
 		247DEAD32B66074800D04AD8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		247DEAD52B66347100D04AD8 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		24A1E33E2BA2FCA40019BC7C /* BarChatWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChatWeekView.swift; sourceTree = "<group>"; };
+		24A1E3422BA39EF40019BC7C /* IndentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
 		24CCD5E62B901CFE009B5CB5 /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
 		24CCD5E82B919F63009B5CB5 /* EmbossedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButton.swift; sourceTree = "<group>"; };
 		24CCD5EA2B931654009B5CB5 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 				24DB2F332B7006E400D6506C /* RatingView.swift */,
 				24CCD5F52B9C7EDD009B5CB5 /* History Views */,
 				24E3F80F2B77201A000ED535 /* SuccessView.swift */,
-				24E3F8122B7BFF1D000ED535 /* TimerView.swift */,
+				24A1E3412BA39EC90019BC7C /* Timer Views */,
 				24CCD5E62B901CFE009B5CB5 /* RaisedButton.swift */,
 				24CCD5E82B919F63009B5CB5 /* EmbossedButton.swift */,
 				24CCD5EA2B931654009B5CB5 /* ContainerView.swift */,
@@ -106,13 +108,30 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		24A1E3402BA39E930019BC7C /* Report Views */ = {
+			isa = PBXGroup;
+			children = (
+				24A1E33E2BA2FCA40019BC7C /* BarChatWeekView.swift */,
+			);
+			path = "Report Views";
+			sourceTree = "<group>";
+		};
+		24A1E3412BA39EC90019BC7C /* Timer Views */ = {
+			isa = PBXGroup;
+			children = (
+				24E3F8122B7BFF1D000ED535 /* TimerView.swift */,
+				24A1E3422BA39EF40019BC7C /* IndentView.swift */,
+			);
+			path = "Timer Views";
+			sourceTree = "<group>";
+		};
 		24CCD5F52B9C7EDD009B5CB5 /* History Views */ = {
 			isa = PBXGroup;
 			children = (
 				24DB2F372B70A04E00D6506C /* HistoryView.swift */,
 				24CCD5F62B9CADE7009B5CB5 /* AddHistoryView.swift */,
 				24CCD5F82B9D8F93009B5CB5 /* BarChartsDayView.swift */,
-				24A1E33E2BA2FCA40019BC7C /* BarChatWeekView.swift */,
+				24A1E3402BA39E930019BC7C /* Report Views */,
 			);
 			path = "History Views";
 			sourceTree = "<group>";
@@ -285,6 +304,7 @@
 				24DB2F322B6752CA00D6506C /* Exercise.swift in Sources */,
 				24CCD5EF2B945713009B5CB5 /* GradientBackground.swift in Sources */,
 				247DEAD42B66074800D04AD8 /* WelcomeView.swift in Sources */,
+				24A1E3432BA39EF40019BC7C /* IndentView.swift in Sources */,
 				24A1E33F2BA2FCA40019BC7C /* BarChatWeekView.swift in Sources */,
 				24DB2F342B7006E400D6506C /* RatingView.swift in Sources */,
 				24E3F80C2B754DF8000ED535 /* HistoryStore.swift in Sources */,
